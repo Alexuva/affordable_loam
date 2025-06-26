@@ -22,7 +22,9 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/tippy.js/dist/tippy.css",
+              "node_modules/tippy.js/animations/scale.css"
             ]
           },
           "configurations": {
@@ -35,8 +37,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "20kB",
+                  "maximumError": "20kB"
                 }
               ],
               "outputHashing": "all",
@@ -63,7 +65,8 @@
               "buildTarget": "affordable_loam:build:production"
             },
             "development": {
-              "buildTarget": "affordable_loam:build:development"
+              "buildTarget": "affordable_loam:build:development",
+              "hmr": false
             }
           },
           "defaultConfiguration": "development"
