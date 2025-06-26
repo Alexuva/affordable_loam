@@ -5,6 +5,10 @@ It works as a web component that can be embedded in any website (instructions be
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.1.
 
+## Component view
+
+![Captura de pantalla 2025-06-26 a las 22 58 13](https://github.com/user-attachments/assets/efe9b8fc-5d20-4fae-afda-6d81e6925689)
+
 ## Development server
 
 To start a local development server, run:
