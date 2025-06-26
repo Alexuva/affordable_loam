@@ -245,7 +245,6 @@ export class App {
     const viewTable = this.table();
     if (!viewTable) return;
   
-    // Clona los nodos que quieres imprimir
     const resumeToPrint = viewResume.nativeElement.cloneNode(true) as HTMLElement;
     const button = resumeToPrint.querySelector('#downloadPdf') as HTMLElement;
     if (button) button.classList.add('hidden');
@@ -259,7 +258,6 @@ export class App {
     const tableToPrint = viewTable.nativeElement.cloneNode(true) as HTMLElement;
     tableToPrint.classList.remove('hidden');
   
-    // Obtén el HTML a imprimir
     const printHtml = `
       <div style="width:794px;max-width:100%;">
         ${resumeToPrint.outerHTML}
@@ -268,7 +266,6 @@ export class App {
       </div>
     `;
   
-    // Obtén el link a tu CSS global (ajusta el selector si es necesario)
     const globalStylesView = document.querySelector('#affordable-styles');
     let globalTailwindStyles = '';
     if (globalStylesView && globalStylesView.tagName === 'LINK') {
@@ -277,7 +274,7 @@ export class App {
         globalTailwindStyles = `<link rel="stylesheet" href="${link.href}">`;
       }
     }
-    // Si no existe el link global, inyecta todos los <link rel="stylesheet"> y <style> del <head>
+    
     if (!globalTailwindStyles) {
       const headLinks = Array.from(document.head.querySelectorAll('link[rel="stylesheet"]'));
       const headStyles = Array.from(document.head.querySelectorAll('style'));
@@ -290,7 +287,7 @@ export class App {
           .join('\n');
     }
   
-    // Abre una ventana diminuta y escribe el HTML y los estilos
+    
     const printWindow = window.open('', '_blank', 'width=1,height=1,top=10000,left=10000');
     if (!printWindow) {
       this.isGeneratingPdf.set(false);
@@ -328,7 +325,7 @@ export class App {
   
     printWindow.document.close();
   
-    // Marca como terminado después de un tiempo prudencial (opcional)
+    
     setTimeout(() => {
       this.isGeneratingPdf.set(false);
     }, 5000);

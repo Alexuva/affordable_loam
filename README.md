@@ -1,5 +1,8 @@
 # AffordableLoam
 
+Component to calculate the optimal mortgage a person can obtain based on income, expenses, and other factors.
+It works as a web component that can be embedded in any website (instructions below).
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.1.
 
 ## Development server
@@ -35,6 +38,24 @@ ng build
 ```
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+Go to the dist/browser folder generated with the `ng build` command. In the `index.html` file, add this id to the stylesheet line: affordable-styles. This is necessary for the amortization table download feature to work.
+
+The result should look like this:
+
+```html
+<link id="affordable-styles" rel="stylesheet" href="styles-(SOMEHASH).css">
+```
+
+Then, inject the corresponding component content into the `index.html` file, like this:
+
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<link id="affordable-styles" rel="stylesheet" href="styles-(SOMEHASH).css">
+<loam-calculator></loam-calculator>
+<script src="main-(SOMEHASH).js" type="module"></script>
+```
+Change the file paths as needed to match where you are serving them from.
 
 ## Running unit tests
 
