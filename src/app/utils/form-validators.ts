@@ -19,6 +19,24 @@ export function decimalMinValidation(min: number): ValidatorFn {
 }
 
 /**
+ * Validates the max number in a text input that represents a decimal
+ * @param control The formcontrol of the input that we want to validate
+ * @returns {ValidationErrors|null} Object of type `ValidationErrors` when there is an error, `null` otherwise
+ */
+export function decimalMaxValidation(max: number): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    const value:string = control.value;
+    if(value !== null){ //Only validates when the input has some value
+      const numericValue:number = parseFloat(value.replaceAll(',','.'));
+      if(numericValue > max){
+        return { max: { max: max, actual: value } }
+      }
+    }
+    return null;
+  };
+}
+
+/**
  * Validates if the number is a correct decimal of 1 decimal place
  * @param control The formcontrol of the input that we want to validate
  * @returns {ValidationErrors|null} Object of type `ValidationErrors` when there is an error, `null` otherwise

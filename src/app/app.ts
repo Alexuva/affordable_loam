@@ -4,6 +4,7 @@ import { CurrencyPipe } from '@angular/common';
 
 //Utils
 import { 
+  decimalMaxValidation,
   decimalMinValidation,
   decimalsValidation,
   integerValidation,
@@ -26,7 +27,7 @@ declare global {
 
 @Component({
   selector: 'loam-calculator',
-  imports: [ReactiveFormsModule, CurrencyPipe, CountUpModule],
+  imports: [ReactiveFormsModule, CountUpModule, CurrencyPipe],
   templateUrl: './app.html',
   styleUrl: './app.css',
   standalone: true,
@@ -35,6 +36,7 @@ declare global {
 export class App {
 
   private fb = inject(FormBuilder);
+  private currencyPipe = inject(CurrencyPipe);
   private affordableLoamService = inject(AffordableLoam);
   
   tooltips: Signal<readonly ElementRef<HTMLButtonElement>[]> = viewChildren<ElementRef<HTMLButtonElement>>('tooltip');
@@ -43,8 +45,8 @@ export class App {
   table: Signal<ElementRef<HTMLElement> | undefined> = viewChild<ElementRef<HTMLElement>>('table');
 
   loamForm: FormGroup = this.fb.group({
-    monthlyIncome: ['',[Validators.required, decimalMinValidation(1), decimalsValidation]],
-    otherExpenses: ['',[decimalMinValidation(0), decimalsValidation]],
+    monthlyIncome: ['',[Validators.required, decimalMinValidation(1), decimalMaxValidation(100_000),decimalsValidation]],
+    otherExpenses: ['',[decimalMinValidation(0), decimalMaxValidation(100_000), decimalsValidation]],
     loamInterest: ['', [decimalsValidation, percentageValidation]],
     loamYears: ['',[Validators.required, Validators.min(5), Validators.max(50), integerValidation]],
     loamState: ['new'],
@@ -156,10 +158,10 @@ export class App {
           return 'Este campo es requerido';
         
         case 'min':
-          return `El mínimo es ${errors['min'].min}`;
+          return `El mínimo es ${this.currencyPipe.transform(errors['min'].min, 'EUR', 'symbol', '1.2-2')}`;
 
         case 'max':
-          return `El máximo es ${errors['max'].max}`;
+          return `El máximo es ${this.currencyPipe.transform(errors['max'].max, 'EUR', 'symbol', '1.2-2')}`;
         
         case 'decimal':
         case 'decimals':
