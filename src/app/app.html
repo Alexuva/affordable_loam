@@ -10,10 +10,10 @@
         <!-- Monthly income -->
         <div class="mb-3">
           <label for="monthlyIncome">
-            <span class="text-lg">Ingresos mensuales</span><button type="button" #tooltip data-tooltip-type="monthlyIncome" class="focus:outline-base bg-accent mx-1 px-2 rounded-full text-sm">i</button>
+            <span class="text-lg">Ingresos mensuales netos</span><button type="button" #tooltip data-tooltip-type="monthlyIncome" class="focus:outline-base bg-accent mx-1 px-2 rounded-full text-sm">i</button>
           </label>
           <div class="flex flex-row align-middle mt-1">
-            <input formControlName="monthlyIncome" [classList]="`focus:outline-base p-3 border border-gray-300 placeholder:text-gray-400 rounded-r-none rounded-xs flex-auto ${isValidField('monthlyIncome') ? 'border-red-700' : ''}`" type="text" name="monthlyIncome" id="monthlyIncome" placeholder="Ej: 1580,56"/>
+            <input formControlName="monthlyIncome" [classList]="`focus:outline-base p-3 border border-gray-300 placeholder:text-gray-400 rounded-r-none rounded-xs flex-auto ${isValidField('monthlyIncome') ? 'border-red-700' : ''}`" type="text" name="monthlyIncome" id="monthlyIncome" placeholder="Ej: 1580"/>
             <span [classList]="`border border-l-0 border-gray-300 p-3 rounded-l-none rounded-xs text-gray-400 ${isValidField('monthlyIncome') ? 'border-red-700' : ''}`">€</span>
           </div>
           @if(isValidField('monthlyIncome')){
@@ -27,7 +27,7 @@
             <span class="text-lg">Otras deudas</span><button type="button" #tooltip data-tooltip-type="otherExpenses" class="focus:outline-base bg-accent mx-1 px-2 rounded-full text-sm">i</button>
           </label>
           <div class="flex flex-row align-middle mt-1">
-            <input formControlName="otherExpenses" [classList]="`focus:outline-base p-3 border border-gray-300 placeholder:text-gray-400 rounded-r-none rounded-xs flex-auto ${isValidField('otherExpenses') ? 'border-red-700' : ''}`" type="text" name="otherExpenses" id="otherExpenses" placeholder="Ej: 133,23"/>
+            <input formControlName="otherExpenses" [classList]="`focus:outline-base p-3 border border-gray-300 placeholder:text-gray-400 rounded-r-none rounded-xs flex-auto ${isValidField('otherExpenses') ? 'border-red-700' : ''}`" type="text" name="otherExpenses" id="otherExpenses" placeholder="Ej: 133"/>
             <span [classList]="`border border-l-0 border-gray-300 p-3 rounded-l-none rounded-xs text-gray-400 ${isValidField('otherExpenses') ? 'border-red-700' : ''}`">€</span>
           </div>
           @if(isValidField('otherExpenses')){
@@ -152,7 +152,7 @@
           Sin embargo, algunas entidades son más flexibles con perfiles concretos, como los funcionarios.
         </p>
         <p class="text-lg">
-          Un bróker hipotecario como <a class="underline text-base hover:text-accent font-medium" href="https://javilinares.com/broker-hipotecario/?utm_source=blog&utm_medium=seo&utm_campaign=articulo-blog">Aqueos</a> puede ayudarte a superar ese límite y hacer valer tu situación ante los bancos. Además, también te ayudaremos a encontrar la mejor hipoteca del mercado para tu perfil. 
+          Un bróker hipotecario como <a class="underline text-base hover:text-accent font-medium" href="https://javilinares.com/broker-hipotecario/?utm_source=blog&utm_medium=seo&utm_campaign=articulo-blog#form">Aqueos</a> puede ayudarte a superar ese límite y hacer valer tu situación ante los bancos. Además, también te ayudaremos a encontrar la mejor hipoteca del mercado para tu perfil. 
         </p>
       }@else if(results().isDebtGreaterThanIncome() > 40){
         <p class="text-lg">
@@ -253,12 +253,12 @@
         <br>
         <p>
           Una diferencia de 1 punto porcentual en tu hipoteca se puede traducir en miles de euros de ahorro y en una casa mejor con tus mismos ingresos. 
-          En el <a class="underline text-base hover:text-accent font-medium" href="https://javilinares.com/broker-hipotecario/?utm_source=blog&utm_medium=seo&utm_campaign=articulo-blog">bróker hipotecario Aqueos</a> te podemos ayudar a conseguirla.
+          En el <a class="underline text-base hover:text-accent font-medium" href="https://javilinares.com/broker-hipotecario/?utm_source=blog&utm_medium=seo&utm_campaign=articulo-blog#form">bróker hipotecario Aqueos</a> te podemos ayudar a conseguirla.
         </p>
         <br>
         <p>
           Somos especialistas en hipotecas, analizaremos tu caso y daremos con la mejor hipoteca para ti que haya en el mercado. 
-          Solo tienes que <a class="underline text-base hover:text-accent font-medium" href="https://javilinares.com/broker-hipotecario/?utm_source=blog&utm_medium=seo&utm_campaign=articulo-blog">rellenar este cuestionario</a> y nos pondremos en contacto. 
+          Solo tienes que <a class="underline text-base hover:text-accent font-medium" href="https://javilinares.com/broker-hipotecario/?utm_source=blog&utm_medium=seo&utm_campaign=articulo-blog#form">rellenar este cuestionario</a> y nos pondremos en contacto. 
         </p>
       </div>
       <!-- End Result Text No Debt -->

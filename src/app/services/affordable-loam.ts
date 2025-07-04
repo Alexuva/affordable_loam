@@ -31,8 +31,8 @@ export class AffordableLoam {
   constructor() {}
 
   loamData: WritableSignal<LoamData> = signal({
-    monthlyIncome: 1580.56,
-    otherExpenses: 133.23,
+    monthlyIncome: 1580,
+    otherExpenses: 133,
     loamInterest: 2.5,
     loamYears: 30,
     loamState: HouseState.NEW,
