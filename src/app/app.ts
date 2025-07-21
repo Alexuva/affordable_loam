@@ -11,7 +11,7 @@ import {
   percentageValidation
 } from '@utils/form-validators';
 
-import { AffordableLoam, LoamData, HouseState } from '@services/affordable-loam';
+import { AffordableLoam, LoamData, HouseState, LoamResult } from '@services/affordable-loam';
 
 //External libraries 
 import tippy from 'tippy.js';
@@ -54,7 +54,7 @@ export class App {
   })
 
   houseStateEnum = HouseState;
-  results = computed(()=> this.affordableLoamService.loamResult());
+  results:WritableSignal<LoamResult|null> = signal(null);
   isGeneratingPdf:WritableSignal<boolean> = signal(false);
   isCalculating:WritableSignal<boolean> = signal(false);
   isShowTable:WritableSignal<boolean> = signal(false);
@@ -135,6 +135,7 @@ export class App {
     this.isCalculating.set(true);
     const normalized_values= this.normalizeValues(this.loamForm);
     this.affordableLoamService.loamData.set(normalized_values);
+    this.results.set(this.affordableLoamService.loamResult());
     this.isCalculating.set(false);
     
     const resume = this.resume();

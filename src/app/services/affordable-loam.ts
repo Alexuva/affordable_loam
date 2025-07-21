@@ -1,4 +1,4 @@
-import { computed, Injectable, signal, WritableSignal } from '@angular/core';
+import { computed, Injectable, Signal, signal, WritableSignal } from '@angular/core';
 
 export type LoamData = {
   monthlyIncome: number,
@@ -16,6 +16,30 @@ export type Amortization = {
   tax: number;
   payed: number;
   final: number;
+}
+
+export type LoamResult = {
+    monthlyIncome: number,
+    otherExpenses: number,
+    loamInterest: number,
+    loamYears: number,
+    loamState: HouseState,
+    loamUbication: string,
+    maxPayments: number,
+    maxLoam: number,
+    maxHouseValue: number,
+    mustHaveSaves: number,
+    additionalCost: {
+      total: number,
+      administration: number,
+      taxation: number,
+      notary: number,
+      registry: number,
+      tax: number
+    },
+    amortization: Amortization[],
+    totalInterestPayed: number,
+    isDebtGreaterThanIncome: Signal<number>
 }
 
 export enum HouseState {
@@ -39,7 +63,7 @@ export class AffordableLoam {
     loamUbication: 'andalucia'
   })
 
-  loamResult = computed(() => {
+  loamResult: Signal<LoamResult> = computed(() => {
 
     const maxPayments = this.maxPayments(this.loamData);
     const maxLoam = this.maxLoam(this.loamData, maxPayments);
