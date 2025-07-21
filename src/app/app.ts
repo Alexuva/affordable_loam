@@ -137,9 +137,6 @@ export class App {
     this.affordableLoamService.loamData.set(normalized_values);
     this.results.set(this.affordableLoamService.loamResult());
     this.isCalculating.set(false);
-    
-    const resume = this.resume();
-    if(resume) resume.nativeElement.scrollIntoView({behavior: 'smooth'});
   }
 
   isValidField( fieldName: string ): boolean | null {
