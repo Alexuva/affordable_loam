@@ -24,7 +24,7 @@
         <!-- Other expenses -->
         <div>
           <label for="otherExpenses">
-            <span class="text-lg">Otras deudas</span><button type="button" #tooltip data-tooltip-type="otherExpenses" class="focus:outline-base bg-accent mx-1 px-2 rounded-full text-sm">i</button>
+            <span class="text-lg">Otras deudas mensuales</span><button type="button" #tooltip data-tooltip-type="otherExpenses" class="focus:outline-base bg-accent mx-1 px-2 rounded-full text-sm">i</button>
           </label>
           <div class="flex flex-row align-middle mt-1">
             <input formControlName="otherExpenses" [classList]="`focus:outline-base p-3 border border-gray-300 placeholder:text-gray-400 rounded-r-none rounded-xs flex-auto ${isValidField('otherExpenses') ? 'border-red-700' : ''}`" type="text" name="otherExpenses" id="otherExpenses" placeholder="Ej: 133"/>
